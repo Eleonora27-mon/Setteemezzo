@@ -10,25 +10,32 @@ public class App {
         String pescaCarta = "no";
         double punteggioUtente = 0;
         int seme;
-        
-        String nomeSeme = "";
+        boolean [][] mazzo = new boolean [10][4];
+        String nomeSeme="";
+        int cartaUtente;
+         
     
          
         
         do {
-            int cartaUtente = r.nextInt(10) + 1;
-            seme=r.nextInt(4)+1;
-            switch (seme) {
-                case 1: nomeSeme = "denari";
+        
+            do {
+                cartaUtente= r.nextInt(10);
+                seme=r.nextInt(4);
+                
+            } while (mazzo[cartaUtente][seme]);
+                mazzo[cartaUtente][seme]=true;
+                switch (seme) {
+                case 0: nomeSeme = "denari";
                     break;
-                case 2: nomeSeme = "bastoni";
+                case 1: nomeSeme = "bastoni";
                 break;
-                case 3: nomeSeme = "spade";
+                case 2: nomeSeme = "spade";
                 break;
-                case 4: nomeSeme = "coppe";
+                case 3: nomeSeme = "coppe";
                 break;
              }
-                
+               cartaUtente=cartaUtente+1; 
             // punteggioUtente = punteggioUtente + cartaUtente;
             if (cartaUtente >= 8) {
                 punteggioUtente = punteggioUtente + 0.5;
